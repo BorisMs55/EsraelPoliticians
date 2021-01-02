@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'djmoney',
     'employee',
+    'accounts',
     'api',
 ]
 
