@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="employees">
+    {% for employee in employees%}
+        <img src="{{employee.photo.url}}" border="2"  width="120" height="120">
+    <div class=content>
+        <b>{{employee.first_name}} {{employee.last_name}}</b><br>
+        place of work: {{employee.department}}<br>
+        manager: {{employee.manager}}<br>
+        position: {{employee.job}}<br>
+        hire_date: {{employee.hire_date}}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

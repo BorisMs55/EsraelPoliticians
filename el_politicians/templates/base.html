@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    <title>Israel politicians</title>
+  </head>
+  <body>
+    <!--div class="container"-->
+      <!--div class="row justify-content-center"-->
+        <div class="col-8">
+          <form action='api/actionUrl/' method='GET'>
+            <button type='submit' onclick="location.href='{% url 'api:salaryCalc' %}'" style="float: right;" class="salaryBtn">Salary calculations</button>
+          </form>
+          <button class="jsonBtn" onclick="location.href='{% url 'api:display_json' %}'" style="float: right;">Display Json</button>
+          <h1 class="mt-2">Israel politicians</h1>
+          <hr class="mt-0 mb-4">
+          {% block content %}
+          {% endblock %}
+        </div>
+      <!--/div-->
+    <!--/div-->
+  </body>
+</html>

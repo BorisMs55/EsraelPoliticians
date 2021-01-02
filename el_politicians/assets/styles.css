@@ -1,0 +1,35 @@
+.wrapper{
+    max-width: 960px;
+    margin: 0 auto;
+    float: left;
+}
+
+.employees{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 2rem;
+}
+
+.salaryBtn {
+    display:inline-block
+    margin: 30px;
+    padding: 20px;
+}
+.jsonBtn {
+    display:inline-block
+    margin: 30px;
+    padding: 20px;
+}
+
+employees.content{
+    width:auto;
+    height:150px;
+    float:right
+}
+/*.employee .employee-detail{
+   *//*padding: 10px;*//*
+   border: 1px solid  #00dba0;
+   position:relative;
+   left: 30px;
+   *//*padding-bottom: 10px;*//*
+}*/

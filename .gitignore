@@ -1,0 +1,7 @@
+/el_politicians/employee/migrations/
+/venv/
+/.idea/
+/el_politicians/manage.py
+/el_politicians/result.txt
+/el_politicians/media/
+/el_politicians/employee/__pycache__/
