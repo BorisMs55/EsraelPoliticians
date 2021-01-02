@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('employee/', include('employee.urls')),
     path('api/', include('api.urls', namespace="api")),
+    path('accounts/', include('accounts.urls')),
     path('', EmployeeListView.as_view(), name="home"),
 ]
 

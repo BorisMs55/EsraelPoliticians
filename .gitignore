@@ -1,3 +1,9 @@
+*.pyc
+*~
+__pycache__
+/venv
+db.sqlite3
+/static
 /el_politicians/employee/migrations/
 /venv/
 /.idea/
