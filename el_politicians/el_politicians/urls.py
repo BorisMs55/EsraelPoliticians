@@ -17,15 +17,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from employee import views as em_view
 
-from employee.views import EmployeeListView
+#from employee.views import EmployeeListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('employee/', include('employee.urls')),
     path('api/', include('api.urls', namespace="api")),
     path('accounts/', include('accounts.urls')),
-    path('', EmployeeListView.as_view(), name="home"),
+    path('', em_view.EmployeeListView.as_view(), name="home"),
 ]
 
 if settings.DEBUG:
