@@ -32,6 +32,7 @@ def employee_create(request):
         form = CreateEmployee()
     return render(request, 'employee/employee_create.html', {'form': form})
 
+
 @login_required(login_url="/accounts/login/")
 def department_create(request):
     if request.method == 'POST':
@@ -43,3 +44,16 @@ def department_create(request):
     else:
         form = CreateDepartment()
     return render(request, 'employee/department_create.html', {'form': form})
+
+
+@login_required(login_url="/accounts/login/")
+def job_create(request):
+    if request.method == 'POST':
+        form = CreateJob(request.POST, request.FILES)
+        if form.is_valid():
+            # save to DB
+            form.save()
+            return redirect('employee:list')
+    else:
+        form = CreateJob()
+    return render(request, 'employee/job_create.html', {'form': form})

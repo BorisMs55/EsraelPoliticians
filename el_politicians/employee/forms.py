@@ -12,3 +12,8 @@ class CreateDepartment(forms.ModelForm):
     class Meta:
         model = models.Department
         fields = ['name']
+
+class CreateJob(forms.ModelForm):
+    class Meta:
+        model = models.Job
+        fields = ['name']
