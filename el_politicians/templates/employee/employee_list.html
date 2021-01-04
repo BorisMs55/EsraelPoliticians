@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="dropdown dropdown-menu-right">
+    <button class="dropbtn">Actions</button>
+    <div class="dropdown-content">
+        <a href="{% url 'api:display_json' %}">Display Json</a>
+        <a href="{% url 'api:salaryCalc' %}">Calculations</a>
+        <a href="{% url 'employee:employee_create' %}">New politician</a>
+        <a href="{% url 'employee:department_create' %}">New department</a>
+        <a href="{% url 'employee:job_create' %}">New job</a>
+    </div>
+</div>
+<br>
+<br>
 <nav>
     <ul>
         {% if user.is_authenticated %}
@@ -9,7 +21,7 @@
                 <button type="submit">Logout</button>
             </form>
         </li>
-        {# <li><a href="{% url 'movies:create'%}" class="highlight">New movie</a></li> #}
+        {# <li><a href="{% url 'employee:create'%}" class="highlight">New politician</a></li> #}
         {% else %}
         <li><a href="{% url 'accounts:login'%}">Login</a></li>
         <li><a href="{% url 'accounts:signup'%}">Signup</a></li>

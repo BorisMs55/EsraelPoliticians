@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="job_create">
+        <h2>Create a new job</h2>
+        <form class="site-form" action="{% url 'employee:job_create'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+{% endblock %}

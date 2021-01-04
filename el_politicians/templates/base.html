@@ -4,23 +4,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'styles.css'%}">
     <title>Israel politicians</title>
   </head>
   <body>
-    <!--div class="container"-->
+    <div class="container">
       <!--div class="row justify-content-center"-->
-        <div class="col-8">
-          <form action='api/actionUrl/' method='GET'>
-            <button type='submit' onclick="location.href='{% url 'api:salaryCalc' %}'" style="float: right;" class="salaryBtn">Salary calculations</button>
-          </form>
-          <button class="jsonBtn" onclick="location.href='{% url 'api:display_json' %}'" style="float: right;">Display Json</button>
+        <div class="col-16">
+<!--          <div class="dropdown dropdown-menu-right">-->
+<!--            <button class="dropbtn">Actions</button>-->
+<!--            <div class="dropdown-content">-->
+<!--              <a href="{% url 'api:display_json' %}">Display Json</a>-->
+<!--              <a href="{% url 'api:salaryCalc' %}">Calculations</a>-->
+<!--              <a href="{% url 'employee:employee_create' %}"}>New politician</a>-->
+<!--            </div>-->
+<!--          </div>-->
           <h1 class="mt-2">Israel politicians</h1>
           <hr class="mt-0 mb-4">
           {% block content %}
           {% endblock %}
         </div>
       <!--/div-->
-    <!--/div-->
+    </div>
   </body>
 </html>

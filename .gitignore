@@ -11,3 +11,6 @@ db.sqlite3
 /el_politicians/result.txt
 /el_politicians/media/
 /el_politicians/employee/__pycache__/
+/el_politicians/accounts/migrations/
+/el_politicians/api/migrations/
+/el_politicians/api/__pycache__/
