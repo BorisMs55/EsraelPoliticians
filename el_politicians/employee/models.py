@@ -4,6 +4,12 @@ from django_extensions.db.fields import AutoSlugField
 
 # Create your models here.
 
+class Job(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
 class Employee(models.Model):
     first_name = models.CharField(max_length=75)
     last_name = models.CharField(max_length=75)
@@ -14,7 +20,8 @@ class Employee(models.Model):
     commission_pct = models.DecimalField(max_digits=4, decimal_places=2)
     manager = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
     photo = models.ImageField(default='default.png', blank=True)
-    job = models.ForeignKey('Job', null=True, on_delete=models.SET_NULL)
+    #job = models.ForeignKey('Job', null=True, on_delete=models.SET_NULL)
+    job = models.ManyToManyField(Job)
     department = models.ForeignKey('Department', null=True, blank=True, on_delete=models.SET_NULL)
     slug = AutoSlugField(populate_from=['first_name', 'last_name'])
 
@@ -23,13 +30,6 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
-
-
-class Job(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
 
 
 class Department(models.Model):
