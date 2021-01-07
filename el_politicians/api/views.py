@@ -1,7 +1,10 @@
 import datetime
 import json
+
+import requests
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from rest_framework import viewsets
 from employee.models import Employee
 from rest_framework.renderers import JSONRenderer
@@ -20,24 +23,35 @@ class EmployeeViewset(viewsets.ModelViewSet):
 def salaryCalc(request):
     employee_obj = EmployeeSerializer.data
     # print("salaryCalc")
-    employee = Employee.objects.all()
-    serializer = EmployeeSerializer(employee, many=True)
-    json_data = JSONRenderer().render(serializer.data)
+    # employee = Employee.objects.all()
+    # serializer = EmployeeSerializer(employee, many=True)
+    # json_data = JSONRenderer().render(serializer.data)
 
-    list_data = json.loads(json_data)
-    record_count=len(list_data)
+    # json_data = response.json()
+    # list_data = json.loads(json_data)
+    # record_count=len(list_data)
+    url1 = reverse('api:display_json')
+    #print(url1)
+    response = requests.get("http://127.0.0.1:8000"+url1)
+
+    # url = 'http://127.0.0.1:8000/api/'
+    # response = requests.get(url)
+    data = json.loads(response.text.encode("utf8"))
+    # print(data)
+    record_count = len(data)
+    #print(record_count)
     salary_sum = 0.0
     now = datetime.datetime.now()
 
-    for item in list_data:
+    for item in data:
+        #print(float(item.get('salary')))
         salary_sum = salary_sum + float(item.get('salary'))
-        #print(item.get('hire_date'), item.get('salary'))
     #print(salary_sum)
     salary_avg = salary_sum / record_count
     #print(salary_avg)
 
     list_out = []
-    for item in list_data:
+    for item in data: #list_data:
         adate = datetime.datetime.fromisoformat(item.get('hire_date'))
 
         delta = (now - adate).days

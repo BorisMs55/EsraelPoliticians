@@ -5,6 +5,6 @@ from . import views
 app_name = 'api'
 
 urlpatterns = [
-    path('', EmployeeViewset.as_view({'get':'list',}), name="display_json"),
+    path('', EmployeeViewset.as_view({'get': 'list', }), name="display_json"),
     path('actionUrl/', views.salaryCalc, name="salaryCalc"),
 ]
