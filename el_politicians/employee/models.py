@@ -20,8 +20,8 @@ class Employee(models.Model):
     commission_pct = models.DecimalField(max_digits=4, decimal_places=2)
     manager = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
     photo = models.ImageField(default='default.png', blank=True)
-    #job = models.ForeignKey('Job', null=True, on_delete=models.SET_NULL)
-    job = models.ManyToManyField(Job)
+    job = models.ForeignKey('Job', null=True, on_delete=models.SET_NULL)
+    #job = models.ManyToManyField(Job)
     department = models.ForeignKey('Department', null=True, blank=True, on_delete=models.SET_NULL)
     slug = AutoSlugField(populate_from=['first_name', 'last_name'])
 

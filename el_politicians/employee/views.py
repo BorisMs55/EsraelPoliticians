@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.views import generic
 from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
@@ -31,6 +32,10 @@ def employee_create(request):
     else:
         form = CreateEmployee()
     return render(request, 'employee/employee_create.html', {'form': form})
+# class employee_create(generic.CreateView):
+#     model = Employee
+#     form_class = CreateEmployee
+#     success_url = "/"
 
 
 @login_required(login_url="/accounts/login/")

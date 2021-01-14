@@ -23,6 +23,7 @@ from employee import views as em_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path("select2/", include("django_select2.urls")),
     path('employee/', include('employee.urls')),
     path('api/', include('api.urls', namespace="api")),
     path('accounts/', include('accounts.urls')),
